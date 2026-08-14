@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFFBF7;
+  --foreground: #1C0A00;
+  --primary: #F97316;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFF7ED;
+  --secondary-foreground: #9A3412;
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
+  --muted: #F5F0EB;
+  --muted-foreground: #78716C;
+  --card: #FFFFFF;
+  --card-foreground: #1C0A00;
+  --border: #E7E0D8;
+  --input: #F5F0EB;
+  --ring: #F97316;
+  --radius: 12px;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  /* semantic */
+  --positive: #059669;
+  --positive-bg: #ECFDF5;
+  --negative: #DC2626;
+  --negative-bg: #FEF2F2;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --info: #0369A1;
+  --info-bg: #EFF6FF;
+}
+
+.dark {
+  --background: #0F0A06;
+  --foreground: #FDF8F3;
+  --primary: #FB923C;
+  --primary-foreground: #1C0A00;
+  --secondary: #1C1208;
+  --secondary-foreground: #FED7AA;
+  --accent: #14B8A6;
+  --accent-foreground: #0F0A06;
+  --muted: #1C1510;
+  --muted-foreground: #A8A29E;
+  --card: #160D07;
+  --card-foreground: #FDF8F3;
+  --border: #2C1F14;
+  --input: #1C1510;
+  --ring: #FB923C;
+  --positive: #34D399;
+  --positive-bg: #022C22;
+  --negative: #F87171;
+  --negative-bg: #2D0707;
+  --warning: #FCD34D;
+  --warning-bg: #1C1000;
+  --info: #60A5FA;
+  --info-bg: #0C1A2E;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .font-mono-data {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFFBF7 50%, #F0FDFA 100%);
+  }
+
+  .dark .gradient-hero {
+    background: linear-gradient(135deg, #1C0A00 0%, #0F0A06 50%, #042F2E 100%);
+  }
+
+  .gradient-card-orange {
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+  }
+
+  .dark .gradient-card-orange {
+    background: linear-gradient(135deg, #1C1208 0%, #2C1A08 100%);
+  }
+
+  .gradient-card-teal {
+    background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+  }
+
+  .dark .gradient-card-teal {
+    background: linear-gradient(135deg, #042F2E 0%, #0D3D38 100%);
+  }
+
+  .pin-shadow {
+    filter: drop-shadow(0 4px 8px rgba(249, 115, 22, 0.35));
+  }
+
+  .card-hover {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 300ms ease forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 400ms ease forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes shrink {
+    from { width: 100%; }
+    to { width: 0%; }
+  }
+
+  .map-grid-bg {
+    background-color: var(--muted);
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .itinerary-line::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    bottom: -20px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+  }
+
+  .budget-bar-fill {
+    transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
