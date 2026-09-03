@@ -17,20 +17,27 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
     const stored = localStorage.getItem('vibemap-dark');
     if (stored === 'true') {
       setDarkMode(true);
       document.documentElement?.classList?.add('dark');
     }
-  }, []);
+  }, [mounted]);
 
   const toggleDark = () => {
     const next = !darkMode;
@@ -60,14 +67,13 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS?.map((link) => {
-              const isActive = link?.href !== '#offers' && (pathname === link?.href);
+              const isActive = link?.href !== '#offers' && pathname === link?.href;
               return (
                 <Link
                   key={`nav-${link?.href}`}
                   href={link?.href}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
-                    isActive
-                      ? 'bg-primary/10 text-primary' :'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   }`}
                 >
                   {link?.label}
@@ -116,8 +122,7 @@ export default function Navbar() {
                   href={link?.href}
                   onClick={() => setMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-primary/10 text-primary' :'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   }`}
                 >
                   <link.icon size={16} />

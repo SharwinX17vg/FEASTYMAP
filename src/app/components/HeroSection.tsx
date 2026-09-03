@@ -97,7 +97,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap items-center gap-3 mb-12">
             <Link
               href="/outing-planner"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground rounded-xl text-base font-bold hover:bg-primary/90 active:scale-95 transition-all duration-150 shadow-lg shadow-primary/25"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground rounded-xl text-base font-bold hover:bg-primary/90 active:scale-95 transition-all duration-150"
             >
               <Route size={18} />
               Plan an Outing
