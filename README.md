@@ -1,11 +1,3 @@
-
-
-## FEASTYMAP
-
-I want the README to look professional, clean, concise, and suitable for a serious GitHub project. Do not make it overly long. Do not use emojis. Do not make it look like a generic Next.js template.
-
-Use the following exact structure:
-
 # FEASTYMAP
 
 ### Smart City Exploration and Outing Planning Platform
