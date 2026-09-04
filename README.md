@@ -145,8 +145,5 @@ FEASTYMAP aims to bring location discovery, food and entertainment exploration, 
 - Reviews and ratings
 - Business and community features
 
-## Developer
-
-Nithiya Sharwin V G
 
 
