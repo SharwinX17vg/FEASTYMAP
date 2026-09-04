@@ -1,165 +1,141 @@
 # FEASTYMAP
 
 ### Smart City Exploration and Outing Planning Platform
-
-Write a short professional introduction explaining that FEASTYMAP is a modern platform for discovering food and entertainment destinations, exploring locations through an interactive map, and creating personalized outing plans based on preferences, budget, duration, transportation, and group requirements.
+FEASTYMAP is a modern platform for discovering food and entertainment destinations, exploring locations through an interactive map, and creating personalized outing plans based on preferences, budget, duration, transportation, and group requirements.
 
 ## Project Status
 
-Status: Active Development
+**Status:** Active Development
 
 ## Tech Stack
 
-Use a clean table with:
-
-- Next.js 15 — Web application framework
-- React 19 — User interface
-- TypeScript — Type-safe development
-- Tailwind CSS — Responsive styling
-- Leaflet — Interactive maps
-- OpenStreetMap — Map data
-- Node.js — Runtime environment
-- Git & GitHub — Version control
+| Technology | Purpose |
+| --- | --- |
+| Next.js 15 | Web application framework |
+| React 19 | User interface |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Responsive styling |
+| Leaflet | Interactive maps |
+| OpenStreetMap | Map data |
+| Node.js | Runtime environment |
+| Git & GitHub | Version control |
 
 ## Live Demo
 
-Add:
+Live demo: Coming Soon
 
-Live Demo: Coming Soon
-
-GitHub:
-https://github.com/SharwinX17vg/FEASTYMAP
+GitHub: [SharwinX17vg/FEASTYMAP](https://github.com/SharwinX17vg/FEASTYMAP)
 
 ## Key Features
 
-Describe these features briefly and professionally:
-
-1. Interactive Map
-   - Explore restaurants, cafés, malls, parks, bars, desserts, street food, and events through an interactive map.
-   - Include category filtering and time-based discovery.
-
-2. Smart Outing Planner
-   - Users can select group size, budget, duration, return time, cuisine, flavor preferences, and transportation method.
-
-3. Group Planning
-   - Combine preferences from multiple people and create an outing plan suitable for the group.
-
-4. Personalized Itinerary
-   - Generate a structured outing plan with destinations, timings, travel information, estimated costs, and per-person cost.
-
-5. Budget Management
-   - Show estimated spending, transportation costs, remaining budget, category-wise expenses, and per-person cost.
-
-6. Offers and Events
-   - Allow users to discover available offers and upcoming events while planning an outing.
-
-7. Time-Based Discovery
-   - Highlight relevant places depending on the selected time of day.
+- **Interactive Map:** Explore restaurants, cafes, malls, parks, bars, dessert destinations, street food, and events with category filtering and time-based discovery.
+- **Smart Outing Planner:** Build plans around group size, budget, duration, return time, cuisine, flavor preferences, and transportation method.
+- **Group Planning:** Combine preferences from multiple people to create an outing plan suited to the group.
+- **Personalized Itinerary:** Organize destinations, timings, travel information, estimated costs, and per-person expenses in one structured plan.
+- **Budget Management:** Track estimated spending, transportation costs, remaining budget, category-wise expenses, and per-person cost.
+- **Offers and Events:** Discover available offers and upcoming events while planning an outing.
+- **Time-Based Discovery:** Find places relevant to the selected time of day.
 
 ## Screenshots
 
-Create a clean screenshot section with placeholders for:
+![FEASTYMAP Explore](./screenshots/explore.png)
 
-- Explore
-- Interactive Map
-- Outing Planner
-- Group Planning
-- Generated Itinerary
+![FEASTYMAP Interactive Map](./screenshots/interactive-map.png)
 
-Use image paths such as:
+![FEASTYMAP Outing Planner](./screenshots/outing-planner.png)
 
-./screenshots/explore.png
-./screenshots/interactive-map.png
-./screenshots/outing-planner.png
-./screenshots/group-planning.png
-./screenshots/itinerary.png
+![FEASTYMAP Group Planning](./screenshots/group-planning.png)
 
-Do not invent screenshots or URLs.
+![FEASTYMAP Itinerary](./screenshots/itinerary.png)
 
 ## Architecture
 
-Briefly explain that FEASTYMAP uses the Next.js App Router and a component-based architecture.
+FEASTYMAP uses the Next.js App Router and a component-based architecture. Page-level experiences are organized under `src/app`, reusable interface elements under `src/components`, shared data and utilities under `src/lib`, and global styling under `src/styles`.
 
-Show a simple project structure similar to:
-
+```text
 FEASTYMAP/
 ├── src/
 │   ├── app/
+│   │   ├── interactive-map/
+│   │   └── outing-planner/
 │   ├── components/
+│   ├── lib/
 │   └── styles/
 ├── public/
 ├── package.json
 ├── next.config.mjs
 └── README.md
+```
 
-Then show a concise application flow:
+### Application Flow
 
+```text
 User Preferences
-↓
+   ↓
 Outing Planner
-↓
-Recommendation & Planning Logic
-↓
+   ↓
+Recommendation and Planning Logic
+   ↓
 Destination Selection
-↓
-Time, Budget & Transportation Analysis
-↓
+   ↓
+Time, Budget and Transportation Analysis
+   ↓
 Personalized Itinerary
+```
 
 ## Installation
 
-Include:
-
 ### Prerequisites
+
 - Node.js
 - npm
 - Git
 
 ### Clone Repository
 
+```bash
 git clone https://github.com/SharwinX17vg/FEASTYMAP.git
 cd FEASTYMAP
+```
 
 ### Install Dependencies
 
+```bash
 npm install
+```
 
 ### Run Locally
 
+```bash
 npm run dev
+```
 
-Then show:
-
-http://localhost:4028
+Open [http://localhost:4028](http://localhost:4028) in your browser.
 
 ## Environment Variables
 
-Briefly mention that required environment variables should be placed in a .env file.
+Place project-specific environment variables in a local `.env` file. Keep sensitive credentials private and do not commit them to the repository.
 
-Use a simple example only if appropriate:
-
+```env
 NEXT_PUBLIC_API_URL=your_api_url
 API_KEY=your_api_key
-
-Also mention not to expose sensitive credentials.
+```
 
 ## Available Scripts
 
-Use a concise table for:
-
-npm run dev
-npm run build
-npm run start
-npm run lint
-npm run format
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server on port 4028 |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the Next.js server on port 4028 |
+| `npm run lint` | Run the project linter |
+| `npm run format` | Format source and configuration files |
 
 ## Project Vision
 
-Write a short professional paragraph explaining that FEASTYMAP aims to bring location discovery, food and entertainment exploration, events, offers, personalized planning, route considerations, and budget management into one unified outing-planning experience.
+FEASTYMAP aims to bring location discovery, food and entertainment exploration, events, offers, personalized planning, route considerations, and budget management into one unified outing-planning experience.
 
 ## Future Scope
-
-Keep this section short and include:
 
 - Advanced recommendation systems
 - Real-time business and event information
