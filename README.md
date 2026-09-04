@@ -20,11 +20,7 @@ FEASTYMAP is a modern platform for discovering food and entertainment destinatio
 | Node.js | Runtime environment |
 | Git & GitHub | Version control |
 
-## Live Demo
 
-Live demo: Coming Soon
-
-GitHub: [SharwinX17vg/FEASTYMAP](https://github.com/SharwinX17vg/FEASTYMAP)
 
 ## Key Features
 
