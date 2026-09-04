@@ -1,6 +1,6 @@
-Update the README.md file of my project.
 
-Project name: FEASTYMAP
+
+## FEASTYMAP
 
 I want the README to look professional, clean, concise, and suitable for a serious GitHub project. Do not make it overly long. Do not use emojis. Do not make it look like a generic Next.js template.
 
