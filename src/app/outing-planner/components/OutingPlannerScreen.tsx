@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Route, Users, Sparkles } from 'lucide-react';
+import { Route, Users, Sparkles, ChevronRight } from 'lucide-react';
 import PlannerStepOne from './PlannerStepOne';
 import PlannerStepTwo from './PlannerStepTwo';
 import PlannerItinerary from './PlannerItinerary';
@@ -14,7 +14,7 @@ const STEPS = [
 ];
 
 export default function OutingPlannerScreen() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<PlannerFormData | null>(null);
   const [itinerary, setItinerary] = useState<GeneratedItinerary | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -44,7 +44,7 @@ export default function OutingPlannerScreen() {
   };
 
   const handleReset = () => {
-    setCurrentStep(1);
+    setCurrentStep(0);
     setFormData(null);
     setItinerary(null);
   };
@@ -65,44 +65,99 @@ export default function OutingPlannerScreen() {
         </p>
       </div>
 
-      {/* Step progress */}
-      <div className="flex items-center gap-3 mb-10">
-        {STEPS.map((step, i) => {
-          const isCompleted = currentStep > step.id;
-          const isCurrent = currentStep === step.id;
-          return (
-            <React.Fragment key={`step-${step.id}`}>
-              <div className="flex items-center gap-2">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                    isCompleted
-                      ? 'bg-positive text-white'
-                      : isCurrent
-                      ? 'bg-primary text-primary-foreground ring-4 ring-primary/20'
-                      : 'bg-muted text-muted-foreground'
-                  }`}
-                >
-                  {isCompleted ? '✓' : step.id}
-                </div>
-                <span
-                  className={`text-sm font-medium hidden sm:block ${
-                    isCurrent ? 'text-foreground' : 'text-muted-foreground'
-                  }`}
-                >
-                  {step.label}
-                </span>
+      {currentStep === 0 && (
+        <div className="max-w-5xl mx-auto">
+          <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr] items-center rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                <Sparkles size={14} />
+                Personalised experience
               </div>
-              {i < STEPS.length - 1 && (
-                <div
-                  className={`flex-1 h-0.5 rounded-full transition-all duration-500 ${
-                    currentStep > step.id ? 'bg-positive' : 'bg-border'
-                  }`}
-                />
-              )}
-            </React.Fragment>
-          );
-        })}
-      </div>
+              <h2 className="mt-5 text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
+                Build a day out that matches your mood, budget, and pace.
+              </h2>
+              <p className="mt-4 max-w-xl text-base text-muted-foreground">
+                Choose your vibe, set your budget, add who is joining, and we’ll create a route with food, stops, and timing designed for your group.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:bg-primary/90"
+                >
+                  Start planning
+                  <ChevronRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="inline-flex items-center justify-center rounded-xl border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:text-primary"
+                >
+                  Explore planner
+                </button>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-muted/50 p-5">
+              <div className="space-y-4">
+                <div className="rounded-xl bg-background p-4 border border-border">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">What you get</p>
+                  <ul className="mt-3 space-y-3 text-sm text-foreground">
+                    <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-primary" /> Best-fit food spots</li>
+                    <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-primary" /> Budget-aware route planning</li>
+                    <li className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-primary" /> Timing and group friendly suggestions</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-primary/5 border border-primary/20 p-4 text-sm text-foreground">
+                  <p className="font-semibold text-primary">Quick start</p>
+                  <p className="mt-1 text-muted-foreground">Tell us your preferences and we’ll do the rest.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {currentStep > 0 && (
+        <div className="flex items-center gap-3 mb-10">
+          {STEPS.map((step, i) => {
+            const isCompleted = currentStep > step.id;
+            const isCurrent = currentStep === step.id;
+            return (
+              <React.Fragment key={`step-${step.id}`}>
+                <div className="flex items-center gap-2">
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                      isCompleted
+                        ? 'bg-positive text-white'
+                        : isCurrent
+                        ? 'bg-primary text-primary-foreground ring-4 ring-primary/20'
+                        : 'bg-muted text-muted-foreground'
+                    }`}
+                  >
+                    {isCompleted ? '✓' : step.id}
+                  </div>
+                  <span
+                    className={`text-sm font-medium hidden sm:block ${
+                      isCurrent ? 'text-foreground' : 'text-muted-foreground'
+                    }`}
+                  >
+                    {step.label}
+                  </span>
+                </div>
+                {i < STEPS.length - 1 && (
+                  <div
+                    className={`flex-1 h-0.5 rounded-full transition-all duration-500 ${
+                      currentStep > step.id ? 'bg-positive' : 'bg-border'
+                    }`}
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      )}
 
       {/* Step content */}
       {currentStep === 1 && (

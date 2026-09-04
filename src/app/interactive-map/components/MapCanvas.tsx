@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { MapPin, Navigation, Loader2, AlertCircle } from 'lucide-react';
 import { CATEGORY_CONFIG } from '@/lib/mockData';
+import type { Map, Marker } from 'leaflet';
 import type { Place, TimeSlot } from '@/lib/mockData';
 
 interface MapCanvasProps {
@@ -10,6 +11,10 @@ interface MapCanvasProps {
   onSelectPlace: (place: Place) => void;
   activeTimeSlot: TimeSlot;
 }
+
+type LeafletHostElement = HTMLDivElement & {
+  _leaflet_id?: number;
+};
 
 // Real-world lat/lng coordinates for Chennai places (mapped to mock data IDs)
 const PLACE_COORDS: Record<string, [number, number]> = {
@@ -33,9 +38,9 @@ const DEFAULT_ZOOM = 13;
 
 export default function MapCanvas({ places, selectedPlace, onSelectPlace, activeTimeSlot }: MapCanvasProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<any>(null);
-  const markersRef = useRef<any[]>([]);
-  const userMarkerRef = useRef<any>(null);
+  const mapRef = useRef<Map | null>(null);
+  const markersRef = useRef<Marker[]>([]);
+  const userMarkerRef = useRef<Marker | null>(null);
   const isInitializingRef = useRef(false);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [locationStatus, setLocationStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -57,7 +62,7 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
     if (!mapContainerRef.current || mapRef.current || isInitializingRef.current) return;
 
     // Check if container already has a Leaflet instance attached
-    if ((mapContainerRef.current as any)._leaflet_id) return;
+    if ((mapContainerRef.current as LeafletHostElement)._leaflet_id) return;
 
     isInitializingRef.current = true;
 
@@ -71,7 +76,7 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
           isInitializingRef.current = false;
           return;
         }
-        if ((mapContainerRef.current as any)._leaflet_id) {
+        if ((mapContainerRef.current as LeafletHostElement)._leaflet_id) {
           isInitializingRef.current = false;
           return;
         }
@@ -152,9 +157,13 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
 
     const addUserMarker = async () => {
       const L = (await import('leaflet')).default;
+      const map = mapRef.current;
+
+      if (!map) return;
 
       if (userMarkerRef.current) {
         userMarkerRef.current.remove();
+        userMarkerRef.current = null;
       }
 
       const pulseIcon = L.divIcon({
@@ -171,7 +180,7 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
       });
 
       userMarkerRef.current = L.marker(userLocation, { icon: pulseIcon })
-        .addTo(mapRef.current)
+        .addTo(map)
         .bindPopup('<b>📍 You are here</b>');
     };
 
@@ -203,6 +212,9 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
         : places;
 
       setVisibleCount(visiblePlaces.length);
+
+      const map = mapRef.current;
+      if (!map) return;
 
       visiblePlaces.forEach((place) => {
         const cfg = CATEGORY_CONFIG[place.category];
@@ -254,7 +266,7 @@ export default function MapCanvas({ places, selectedPlace, onSelectPlace, active
         });
 
         const marker = L.marker(coords, { icon })
-          .addTo(mapRef.current)
+          .addTo(map)
           .bindPopup(`
             <div style="min-width:180px;font-family:inherit;">
               <p style="font-weight:700;font-size:14px;margin:0 0 4px;">${place.name}</p>

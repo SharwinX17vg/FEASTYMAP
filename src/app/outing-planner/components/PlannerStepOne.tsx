@@ -68,7 +68,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Group size */}
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <Users size={15} className="text-primary" />
               Number of People
             </label>
@@ -99,7 +99,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
 
           {/* Budget */}
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <IndianRupee size={15} className="text-primary" />
               Total Budget
             </label>
@@ -144,7 +144,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
         {/* Duration + Return time */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <Clock size={15} className="text-primary" />
               Outing Duration
             </label>
@@ -162,7 +162,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
           </div>
 
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <AlarmClock size={15} className="text-primary" />
               Latest Return Time
             </label>
@@ -180,7 +180,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
 
         {/* Cuisine */}
         <div className="bg-card border border-border rounded-xl p-5">
-          <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+          <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
             <UtensilsCrossed size={15} className="text-primary" />
             Preferred Cuisine
           </label>
@@ -209,7 +209,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Flavor */}
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <Flame size={15} className="text-primary" />
               Flavor Preference
             </label>
@@ -234,7 +234,7 @@ export default function PlannerStepOne({ onSubmit, isLoading }: Props) {
 
           {/* Transport */}
           <div className="bg-card border border-border rounded-xl p-5">
-            <label className="block text-sm font-semibold text-foreground mb-1 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
               <Car size={15} className="text-primary" />
               Transport Method
             </label>

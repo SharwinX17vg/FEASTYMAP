@@ -1,13 +1,7 @@
 'use client';
 import React from 'react';
-import dynamic from 'next/dynamic';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import type { CostBreakdown } from './plannerTypes';
-
-const PieChart = dynamic(() => import('recharts').then((m) => m.PieChart), { ssr: false });
-const Pie = dynamic(() => import('recharts').then((m) => m.Pie), { ssr: false });
-const Cell = dynamic(() => import('recharts').then((m) => m.Cell), { ssr: false });
-const Tooltip = dynamic(() => import('recharts').then((m) => m.Tooltip), { ssr: false });
-const ResponsiveContainer = dynamic(() => import('recharts').then((m) => m.ResponsiveContainer), { ssr: false });
 
 interface Props {
   breakdown: CostBreakdown;
