@@ -3,9 +3,7 @@
 ### Smart City Exploration and Outing Planning Platform
 FEASTYMAP is a modern platform for discovering food and entertainment destinations, exploring locations through an interactive map, and creating personalized outing plans based on preferences, budget, duration, transportation, and group requirements.
 
-## Project Status
 
-**Status:** Active Development
 
 ## Tech Stack
 
