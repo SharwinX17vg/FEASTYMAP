@@ -1,74 +1,184 @@
-# Next.js
+Update the README.md file of my project.
 
-A modern Next.js 15 application built with TypeScript and Tailwind CSS.
+Project name: FEASTYMAP
 
-##  Features
+I want the README to look professional, clean, concise, and suitable for a serious GitHub project. Do not make it overly long. Do not use emojis. Do not make it look like a generic Next.js template.
 
-- **Next.js 15** - Latest version with improved performance and features
-- **React 19** - Latest React version with enhanced capabilities
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+Use the following exact structure:
+
+# FEASTYMAP
+
+### Smart City Exploration and Outing Planning Platform
+
+Write a short professional introduction explaining that FEASTYMAP is a modern platform for discovering food and entertainment destinations, exploring locations through an interactive map, and creating personalized outing plans based on preferences, budget, duration, transportation, and group requirements.
+
+## Project Status
+
+Status: Active Development
+
+## Tech Stack
+
+Use a clean table with:
+
+- Next.js 15 — Web application framework
+- React 19 — User interface
+- TypeScript — Type-safe development
+- Tailwind CSS — Responsive styling
+- Leaflet — Interactive maps
+- OpenStreetMap — Map data
+- Node.js — Runtime environment
+- Git & GitHub — Version control
+
+## Live Demo
+
+Add:
+
+Live Demo: Coming Soon
+
+GitHub:
+https://github.com/SharwinX17vg/FEASTYMAP
+
+## Key Features
+
+Describe these features briefly and professionally:
+
+1. Interactive Map
+   - Explore restaurants, cafés, malls, parks, bars, desserts, street food, and events through an interactive map.
+   - Include category filtering and time-based discovery.
+
+2. Smart Outing Planner
+   - Users can select group size, budget, duration, return time, cuisine, flavor preferences, and transportation method.
+
+3. Group Planning
+   - Combine preferences from multiple people and create an outing plan suitable for the group.
+
+4. Personalized Itinerary
+   - Generate a structured outing plan with destinations, timings, travel information, estimated costs, and per-person cost.
+
+5. Budget Management
+   - Show estimated spending, transportation costs, remaining budget, category-wise expenses, and per-person cost.
+
+6. Offers and Events
+   - Allow users to discover available offers and upcoming events while planning an outing.
+
+7. Time-Based Discovery
+   - Highlight relevant places depending on the selected time of day.
+
+## Screenshots
+
+Create a clean screenshot section with placeholders for:
+
+- Explore
+- Interactive Map
+- Outing Planner
+- Group Planning
+- Generated Itinerary
+
+Use image paths such as:
+
+./screenshots/explore.png
+./screenshots/interactive-map.png
+./screenshots/outing-planner.png
+./screenshots/group-planning.png
+./screenshots/itinerary.png
+
+Do not invent screenshots or URLs.
+
+## Architecture
+
+Briefly explain that FEASTYMAP uses the Next.js App Router and a component-based architecture.
+
+Show a simple project structure similar to:
+
+FEASTYMAP/
+├── src/
+│   ├── app/
+│   ├── components/
+│   └── styles/
+├── public/
+├── package.json
+├── next.config.mjs
+└── README.md
+
+Then show a concise application flow:
+
+User Preferences
+↓
+Outing Planner
+↓
+Recommendation & Planning Logic
+↓
+Destination Selection
+↓
+Time, Budget & Transportation Analysis
+↓
+Personalized Itinerary
 
 ## Installation
 
-1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
+Include:
 
-2. Start the development server:
-  ```bash
-  npm run dev
-  # or
-  yarn dev
-  ```
-3. Open [http://localhost:4028](http://localhost:4028) with your browser to see the result.
+### Prerequisites
+- Node.js
+- npm
+- Git
 
-## Project Structure
+### Clone Repository
 
-```
-nextjs/
-├── public/             # Static assets
-├── src/
-│   ├── app/            # App router components
-│   │   ├── layout.tsx  # Root layout component
-│   │   └── page.tsx    # Main page component
-│   ├── components/     # Reusable UI components
-│   ├── styles/         # Global styles and Tailwind configuration
-├── next.config.mjs     # Next.js configuration
-├── package.json        # Project dependencies and scripts
-├── postcss.config.js   # PostCSS configuration
-└── tailwind.config.js  # Tailwind CSS configuration
+git clone https://github.com/SharwinX17vg/FEASTYMAP.git
+cd FEASTYMAP
 
-```
+### Install Dependencies
 
-##  Page Editing
+npm install
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+### Run Locally
 
-## Styling
+npm run dev
 
-This project uses Tailwind CSS for styling with the following features:
-- Utility-first approach for rapid development
-- Custom theme configuration
-- Responsive design utilities
-- PostCSS and Autoprefixer integration
+Then show:
+
+http://localhost:4028
+
+## Environment Variables
+
+Briefly mention that required environment variables should be placed in a .env file.
+
+Use a simple example only if appropriate:
+
+NEXT_PUBLIC_API_URL=your_api_url
+API_KEY=your_api_key
+
+Also mention not to expose sensitive credentials.
 
 ## Available Scripts
 
-- `npm run dev` - Start development server on port 4028
-- `npm run build` - Build the application for production
-- `npm run start` - Start the development server
-- `npm run serve` - Start the production server
-- `npm run lint` - Run ESLint to check code quality
-- `npm run lint:fix` - Fix ESLint issues automatically
-- `npm run format` - Format code with Prettier
+Use a concise table for:
 
-## Deployment
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run format
 
-Build the application for production:
+## Project Vision
 
-  ```bash
-  npm run build
-  ```
+Write a short professional paragraph explaining that FEASTYMAP aims to bring location discovery, food and entertainment exploration, events, offers, personalized planning, route considerations, and budget management into one unified outing-planning experience.
+
+## Future Scope
+
+Keep this section short and include:
+
+- Advanced recommendation systems
+- Real-time business and event information
+- Route optimization
+- User accounts and personalization
+- Saved places and favorites
+- Reviews and ratings
+- Business and community features
+
+## Developer
+
+Nithiya Sharwin V G
+
+
