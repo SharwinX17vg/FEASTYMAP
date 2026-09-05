@@ -164,15 +164,6 @@ Do not commit sensitive credentials to the repository.
 
 ---
 
-## Deployment
-
-The application is deployed on **Vercel** and is available at:
-
-**https://feastymap.vercel.app/outing-planner**
-
-The production deployment is optimized for the Next.js App Router and responsive across desktop and mobile devices.
-
----
 
 ## Project Vision
 
