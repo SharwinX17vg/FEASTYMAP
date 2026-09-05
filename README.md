@@ -10,7 +10,6 @@ FEASTYMAP is a web application that helps users discover restaurants, cafes, par
 
 **Production Deployment:** https://feastymap.vercel.app/outing-planner
 
-FEASTYMAP is deployed on **Vercel** using the Next.js App Router.
 
 ---
 
